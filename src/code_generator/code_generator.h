@@ -1,0 +1,4 @@
+#ifndef CODE_GENERATOR_H_
+#define CODE_GENERATOR_H_ 1
+
+#endif // CODE_GENERATOR_H_
