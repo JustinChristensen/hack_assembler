@@ -1,56 +1,33 @@
-#include "symbol_table.h"
+#include "../../include/symbol_table.h"
 
 struct symbol_table {
     int size;
-    int (*comp)(const void *a, const void *b);
 };
 
-struct symbol_table *init_symbol_table(int (*comp)(const void *a, const void *b))
+struct symbol_table *init_symbol_table()
 {
-    struct symbol_table *st = malloc(sizeof *st);
+    struct symbol_table *st;
 
-    if (comp != NULL) {
-        st->comp = comp;
+    if ((st = malloc(sizeof *st))) {
+        st->size = 0;
     }
-
-    st->size = 0;
 
     return st;
 }
 
-void st_put(void *st, const void *key, void *value, int (*comp)(const void *a, const void *b))
+void add_entry(struct symbol_table *st, const char *symbol, int address)
 {
 
 }
 
-void *st_get(void *st, const void *key, int (*comp)(const void *a, const void *b))
+bool contains(struct symbol_table *st, const char *symbol)
 {
-    return NULL;
+    return true;
 }
 
-void st_delete(void *st, const void *key, int (*comp)(const void *a, const void *b))
+int get_address(struct symbol_table *st, const char *symbol)
 {
-    st_put(st, key, NULL, comp);
-}
-
-bool st_contains(void *st, const void *key, int (*comp)(const void *a, const void *b))
-{
-    return st_get(st, key, comp) != NULL;
-}
-
-bool st_is_empty(void *st)
-{
-    return st_size(st) == 0;
-}
-
-int st_size(void *st)
-{
-    return ((struct symbol_table *) st)->size;
-}
-
-const void *st_next_key(void *st)
-{
-    return NULL;
+    return 0;
 }
 
 void destroy_symbol_table(struct symbol_table *st)

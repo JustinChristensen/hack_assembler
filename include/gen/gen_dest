@@ -1,0 +1,22 @@
+%struct-type
+%omit-struct-type
+%enum
+%includes
+%readonly-tables
+%switch=1
+%define hash-function-name dest_hash
+%define lookup-function-name lookup_dest
+
+%{
+#include "types/cg_inst.h"
+%}
+
+struct cg_inst;
+%%
+M,      0x1
+D,      0x2
+MD,     0x3
+A,      0x4
+AM,     0x5
+AD,     0x6
+AMD,    0x7

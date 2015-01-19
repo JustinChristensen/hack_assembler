@@ -1,0 +1,22 @@
+%struct-type
+%omit-struct-type
+%enum
+%includes
+%readonly-tables
+%switch=1
+%define hash-function-name jump_hash
+%define lookup-function-name lookup_jump
+
+%{
+#include "types/cg_inst.h"
+%}
+
+struct cg_inst;
+%%
+JGT,    0x1
+JEQ,    0x2
+JGE,    0x3
+JLT,    0x4
+JNE,    0x5
+JLE,    0x6
+JMP,    0x7

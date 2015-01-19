@@ -1,13 +1,52 @@
-#include "parser.h"
+#include "../../include/parser.h"
 
-// static const char mnemonic_start[] = "-!01AMD";
-// static const char symbol_special[] = "_.$:";
+struct parser {
+    int size;
+};
 
-enum state transition(enum state current_state, char c)
+struct parser *init_parser()
 {
-    return current_state;
+    struct parser *parser;
+
+    if ((parser = malloc(sizeof *parser))) {
+        parser->size = 0;
+    }
+
+    return parser;
 }
 
-bool accept(enum state current_state) {
-    return true;
+void advance(struct parser *parser)
+{
+
 }
+
+const enum command_type command_type(struct parser *parser)
+{
+    return A_COMMAND;
+}
+
+const char *symbol(struct parser *parser)
+{
+    return NULL;
+}
+
+const char *dest(struct parser *parser)
+{
+    return NULL;
+}
+
+const char *comp(struct parser *parser)
+{
+    return NULL;
+}
+
+const char *jump(struct parser *parser)
+{
+    return NULL;
+}
+
+void destroy_parser(struct parser *parser)
+{
+    free(parser);
+}
+

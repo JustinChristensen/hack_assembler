@@ -3,5 +3,6 @@
 
 #include <check.h>
 #include <stdio.h>
+#include <stdbool.h>
 
-#endif
+#endif // TEST_HELPER_H_

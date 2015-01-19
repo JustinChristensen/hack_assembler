@@ -1,0 +1,43 @@
+%struct-type
+%omit-struct-type
+%enum
+%includes
+%readonly-tables
+%switch=1
+%define hash-function-name comp_hash
+%define lookup-function-name lookup_comp
+
+%{
+#include "types/cg_inst.h"
+%}
+
+struct cg_inst;
+%%
+0,      0x2a
+1,      0x3f
+-1,     0x3a
+D,      0xc
+A,      0x30
+!D,     0xd
+!A,     0x31
+-D,     0xf
+-A,     0x33
+D+1,    0x1f
+A+1,    0x37
+D-1,    0xe
+A-1,    0x32
+D+A,    0x2
+D-A,    0x13
+A-D,    0x7
+D&A,    0x0
+D|A,    0x15
+M,      0x70
+!M,     0x71
+-M,     0x73
+M+1,    0x77
+M-1,    0x72
+D+M,    0x42
+D-M,    0x53
+M-D,    0x47
+D&M,    0x40
+D|M,    0x55
