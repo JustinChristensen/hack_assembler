@@ -2,4 +2,5 @@
 test_parser
 test_symbol_table
 test_code_generator
+assembler
 include/tables/
