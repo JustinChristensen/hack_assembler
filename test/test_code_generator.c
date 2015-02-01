@@ -84,6 +84,27 @@ START_TEST(test_cg_jump_invalid_input)
 }
 END_TEST
 
+START_TEST(test_ustobs)
+{
+    ck_assert_str_eq("1111111111111111", ustobs(65535));
+    ck_assert_str_eq("0111111111111111", ustobs(32767));
+    ck_assert_str_eq("0011111111111111", ustobs(16383));
+    ck_assert_str_eq("0001111111111111", ustobs(8191));
+    ck_assert_str_eq("0000111111111111", ustobs(4095));
+    ck_assert_str_eq("0000011111111111", ustobs(2047));
+    ck_assert_str_eq("0000001111111111", ustobs(1023));
+    ck_assert_str_eq("0000000111111111", ustobs(511));
+    ck_assert_str_eq("0000000011111111", ustobs(255));
+    ck_assert_str_eq("0000000001111111", ustobs(127));
+    ck_assert_str_eq("0000000000111111", ustobs(63));
+    ck_assert_str_eq("0000000000011111", ustobs(31));
+    ck_assert_str_eq("0000000000001111", ustobs(15));
+    ck_assert_str_eq("0000000000000111", ustobs(7));
+    ck_assert_str_eq("0000000000000011", ustobs(3));
+    ck_assert_str_eq("0000000000000001", ustobs(1));
+}
+END_TEST
+
 int main(void)
 {
     Suite *s1 = suite_create("Code Generator");
@@ -99,6 +120,7 @@ int main(void)
     tcase_add_test_raise_signal(tc1_1, test_cg_comp_invalid_input, SIGABRT);
     tcase_add_test(tc1_1, test_cg_jump);
     tcase_add_test_raise_signal(tc1_1, test_cg_jump_invalid_input, SIGABRT);
+    tcase_add_test(tc1_1, test_ustobs);
 
     srunner_run_all(sr, CK_ENV);
     nf = srunner_ntests_failed(sr);

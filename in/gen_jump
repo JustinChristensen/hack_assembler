@@ -8,7 +8,7 @@
 %define lookup-function-name lookup_jump
 
 %{
-#include "types/cg_inst.h"
+#include "../types/_cg_inst.h"
 %}
 
 struct cg_inst;

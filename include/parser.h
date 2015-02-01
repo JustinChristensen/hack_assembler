@@ -4,16 +4,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <ctype.h>
+#include <sys/stat.h>
 
 struct parser;
 
-enum command_type {
-    A_COMMAND,
-    C_COMMAND,
-    L_COMMAND
-};
+#include "types/command_type.h"
 
-struct parser *init_parser();
+struct parser *init_parser(FILE *in);
+bool has_more_commands(struct parser *parser);
 void advance(struct parser *parser);
 const enum command_type command_type(struct parser *parser);
 const char *symbol(struct parser *parser);

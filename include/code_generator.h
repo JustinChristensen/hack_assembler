@@ -1,6 +1,7 @@
 #ifndef CODE_GENERATOR_H_
 #define CODE_GENERATOR_H_ 1
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -11,5 +12,6 @@
 const short cg_dest(const char *mnemonic);
 const short cg_comp(const char *mnemonic);
 const short cg_jump(const char *mnemonic);
+const char *ustobs(const unsigned short instruction);
 
 #endif // CODE_GENERATOR_H_

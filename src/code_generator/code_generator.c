@@ -1,16 +1,13 @@
 #include "../../include/code_generator.h"
-
-#include "../../include/gen_dest.h"
-#include "../../include/gen_comp.h"
-#include "../../include/gen_jump.h"
+#include "../../include/tables/gen_dest.h"
+#include "../../include/tables/gen_comp.h"
+#include "../../include/tables/gen_jump.h"
 
 enum {
     CG_JUMP_OFFSET = 0,
     CG_DEST_OFFSET = 3,
     CG_COMP_OFFSET = 6
 };
-
-#include <stdio.h>
 
 const short cg_dest(const char *mnemonic)
 {
@@ -74,4 +71,19 @@ const short cg_jump(const char *mnemonic)
     }
 
     return inst;
+}
+
+const char *ustobs(const unsigned short instruction)
+{
+    static char bs[17];
+    char *bp = bs;
+    int i;
+
+    for (i = 0x8000; i > 0; i >>= 1) {
+        *bp++ = (instruction & i) == i ? '1' : '0';
+    }
+
+    *bp = '\0';
+
+    return bs;
 }
