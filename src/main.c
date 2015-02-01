@@ -13,9 +13,7 @@ int main(int argc, char *argv[])
 
     if (argc > 1) {
         if ((in = fopen(argv[1], "r")) == NULL) {
-            perror(NULL);
-        }
-        else {
+            perror("falling back to stdin");
             in = stdin;
         }
     }
